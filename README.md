@@ -1,5 +1,18 @@
-docker-compose build --no-cache
-docker-compose up
-docker-compose exec web python manage.py createsuperuser
+Skeleton for a dockerized Django project (postgresql, gunicorn, nginx)
+========================================================================
 
-docker-compose down -v
+Building
+
+`docker-compose build --no-cache`
+
+Starting
+
+`docker-compose up`
+
+Executing manage.py commands, for example
+
+`docker-compose exec web python manage.py createsuperuser`
+
+Stopping with deleting volumes
+
+`docker-compose down -v`
