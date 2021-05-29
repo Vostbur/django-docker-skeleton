@@ -1,6 +1,8 @@
 Skeleton for a dockerized Django project (postgresql, gunicorn, nginx)
 ========================================================================
 
+To configure the environment settings, edit the `.env` and `.env.db` files.
+
 Building
 
 `docker-compose build --no-cache`
