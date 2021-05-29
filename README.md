@@ -5,7 +5,7 @@ Building
 
 `docker-compose build --no-cache`
 
-Starting
+Starting on http://localhost/
 
 `docker-compose up`
 
