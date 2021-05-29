@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  postgresdb:
+    image: postgres
+    env_file:
+      - ./.env.db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/usr/src/app
+    env_file:
+      - ./.env
+    depends_on:
+      - postgresdb
+    ports:
+      - "8000:8000"
+
+  nginx:
+    build:
+      context: ./docker/nginx
+      dockerfile: Dockerfile
+    volumes:
+      - ./static/:/static
+    depends_on:
+      - web
+      - postgresdb
+    ports:
+      - "80:80"
+
+volumes:
+  postgres_data:
