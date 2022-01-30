@@ -9,7 +9,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 COPY requirements.txt .
-COPY entrypoint.sh .
+COPY --chown=root:root entrypoint.sh .
 
 RUN pip install -r requirements.txt
 RUN chmod +x entrypoint.sh
