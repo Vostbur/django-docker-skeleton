@@ -12,7 +12,7 @@ COPY requirements.txt .
 COPY --chown=root:root entrypoint.sh .
 
 RUN pip install -r requirements.txt
-RUN chmod +x entrypoint.sh
+RUN chmod 755 entrypoint.sh
 
 COPY . .
 
